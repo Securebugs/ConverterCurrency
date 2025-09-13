@@ -128,432 +128,101 @@ body {
     margin: 0;
     padding: 1rem;
 }
-
-body.no-scroll {
-    overflow: hidden;
+body.no-scroll {overflow:hidden;}
+.container {max-width:1200px;margin:0 auto;padding:0 1rem;}
+.card {background:rgba(255,255,255,0.85);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.3);border-radius:2px;box-shadow:0 4px 20px rgba(0,0,0,0.1);margin:1rem 0;padding:1.5rem;transition: transform 0.3s ease;}
+.card:hover {transform: translateY(-2px);}
+.dropdown-menu {max-height:300px;overflow-y:auto;background:rgba(255,255,255,0.9);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.3);border-radius:8px;}
+.search-input {width:95%;margin:0.5rem auto;border-radius:6px;border:1px solid rgba(0,0,0,0.1);}
+.button-group {display:flex;justify-content:center;align-items:center;gap:0.75rem;margin-top:1.5rem;flex-wrap:wrap;}
+.chart-reload {float:right;cursor:pointer;font-size:1.25rem;color:#333;transition: color 0.3s ease;}
+.chart-reload:hover {color:#007bff;}
+.spinner-overlay {position:absolute;top:0;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.7);z-index:10;border-radius:2px;}
+.chart-card {width:100%;}
+.chart-card .card {height:100%;padding-bottom:2rem;}
+.chart-card canvas {height:100% !important;width:100% !important;}
+.form-control, .btn {border-radius:6px;}
+.btn-primary {background:linear-gradient(45deg,#007bff,#00b7eb);border:none;}
+.btn-warning {background:linear-gradient(45deg,#ffc107,#ffdb58);border:none;}
+.alert {border-radius:8px;background:rgba(255,255,255,0.9);backdrop-filter:blur(8px);border:1px solid rgba(0,0,0,0.1);}
+.notify-alert {background:rgba(40,167,69,0.9);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.3);color:white;padding:0.75rem 1rem;border-radius:8px;display:flex;align-items:center;gap:0.5rem;animation:slideIn 0.5s ease-in-out;}
+.notify-alert .material-icons {font-size:1.2rem;}
+@keyframes slideIn {from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; }}
+@keyframes slideOut {from { transform: translateX(0); opacity: 1; } to { transform: translateX(100%); opacity: 0; }}
+h4, h6 {color:#1a1a1a;font-weight:600;}
+#chartSection .row {margin:0;}
+.explanation-list {list-style:none;padding-left:0;}
+.explanation-list li {position:relative;padding-left:1.5rem;margin-bottom:0.5rem;}
+.explanation-list li .material-icons {position:absolute;left:0;top:0.2rem;font-size:1rem;color:#007bff;}
+@media (max-width:768px){
+    .card {padding:1rem;margin:0.5rem 0;}
+    .chart-card {height:200px;}
+    .chart-card .card {padding-bottom:1.5rem;}
+    .form-control {font-size:0.9rem;}
+    .button-group {flex-direction:column;}
+    .btn {width:100%;padding:0.75rem;}
+    .notify-alert {position:static;margin:0.5rem;width:calc(100% - 1rem);}
 }
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
-}
-
-.card {
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    margin: 1rem 0;
-    padding: 1.5rem;
-    transition: transform 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-2px);
-}
-
-.dropdown-menu {
-    max-height: 300px;
-    overflow-y: auto;
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 8px;
-}
-
-.search-input {
-    width: 95%;
-    margin: 0.5rem auto;
-    border-radius: 6px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.button-group {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.75rem;
-    margin-top: 1.5rem;
-    flex-wrap: wrap;
-}
-
-.chart-reload {
-    float: right;
-    cursor: pointer;
-    font-size: 1.25rem;
-    color: #333;
-    transition: color 0.3s ease;
-}
-
-.chart-reload:hover {
-    color: #007bff;
-}
-
-.spinner-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(255, 255, 255, 0.7);
-    z-index: 10;
-    border-radius: 12px;
-}
-
-.chart-card {
-    width: 100%;
-}
-
-.chart-card .card {
-    height: 100%;
-    padding-bottom: 2rem;
-}
-
-.chart-card canvas {
-    height: 100% !important;
-    width: 100% !important;
-}
-
-.form-control, .btn {
-    border-radius: 6px;
-}
-
-.btn-primary {
-    background: linear-gradient(45deg, #007bff, #00b7eb);
-    border: none;
-}
-
-.btn-warning {
-    background: linear-gradient(45deg, #ffc107, #ffdb58);
-    border: none;
-}
-
-.alert {
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.notify-alert {
-    background: rgba(40, 167, 69, 0.9);
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: white;
-    padding: 0.75rem 1rem;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    animation: slideIn 0.5s ease-in-out;
-}
-
-.notify-alert .material-icons {
-    font-size: 1.2rem;
-}
-
-@keyframes slideIn {
-    from { transform: translateX(100%); opacity: 0; }
-    to { transform: translateX(0); opacity: 1; }
-}
-
-@keyframes slideOut {
-    from { transform: translateX(0); opacity: 1; }
-    to { transform: translateX(100%); opacity: 0; }
-}
-
-h4, h6 {
-    color: #1a1a1a;
-    font-weight: 600;
-}
-
-#chartSection .row {
-    margin: 0;
-}
-
-.explanation-list {
-    list-style: none;
-    padding-left: 0;
-}
-
-.explanation-list li {
-    position: relative;
-    padding-left: 1.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.explanation-list li .material-icons {
-    position: absolute;
-    left: 0;
-    top: 0.2rem;
-    font-size: 1rem;
-    color: #007bff;
-}
-
-@media (max-width: 768px) {
-    .card {
-        padding: 1rem;
-        margin: 0.5rem 0;
-    }
-    
-    .chart-card {
-        height: 200px;
-    }
-    
-    .chart-card .card {
-        padding-bottom: 1.5rem;
-    }
-    
-    .form-control {
-        font-size: 0.9rem;
-    }
-    
-    .button-group {
-        flex-direction: column;
-    }
-    
-    .btn {
-        width: 100%;
-        padding: 0.75rem;
-    }
-    
-    .notify-alert {
-        position: static;
-        margin: 0.5rem;
-        width: calc(100% - 1rem);
-    }
-}
-
-@media (min-width: 769px) {
-    .chart-card {
-        height: 300px;
-    }
-    
-    .col-md-6 {
-        flex: 0 0 50%;
-        max-width: 50%;
-    }
-    
-    .notify-alert {
-        position: fixed;
-        top: 1rem;
-        right: 1rem;
-        z-index: 1000;
-    }
+@media (min-width:769px){
+    .chart-card {height:300px;}
+    .col-md-6 {flex:0 0 50%;max-width:50%;}
+    .notify-alert {position:fixed;top:1rem;right:1rem;z-index:1000;}
 }
 </style>
 <script>
 const currenciesMap = {{ currencies_json | safe }};
-function filterOptions(inputId,listContainerId){
-    const filter=document.getElementById(inputId).value.toLowerCase();
-    const items=document.getElementById(listContainerId).querySelectorAll('button.dropdown-item');
-    items.forEach(i=>i.style.display=i.textContent.toLowerCase().includes(filter)?"":"none");
-}
-function selectCurrency(searchInputId,hiddenInputId,toggleId,btn){
-    const code=btn.dataset.code.toUpperCase();
-    const name=btn.dataset.name||'';
-    document.getElementById(hiddenInputId).value=code;
-    document.getElementById(toggleId).textContent=code+' - '+(name||currenciesMap[code]||'');
-    document.getElementById(searchInputId).value='';
-    try{bootstrap.Dropdown.getInstance(document.getElementById(toggleId)).hide();}catch(e){}
-}
-function swapCurrencies(){
-    const fromHidden=document.getElementById('from');
-    const toHidden=document.getElementById('to');
-    const fromToggle=document.getElementById('fromToggle');
-    const toToggle=document.getElementById('toToggle');
-    const tmpVal=fromHidden.value; fromHidden.value=toHidden.value; toHidden.value=tmpVal;
-    const tmpText=fromToggle.textContent; fromToggle.textContent=toToggle.textContent; toToggle.textContent=tmpText;
-}
-function handleHash(){
-    const hash=window.location.hash;
-    const converter=document.getElementById('converterCard');
-    const charts=document.getElementById('chartSection');
-    if(hash==="#chart"){
-        converter.classList.add('d-none'); 
-        charts.classList.remove('d-none'); 
-        loadCharts();
-    } else {
-        converter.classList.remove('d-none'); 
-        charts.classList.add('d-none');
-    }
-}
+function filterOptions(inputId,listContainerId){const filter=document.getElementById(inputId).value.toLowerCase();const items=document.getElementById(listContainerId).querySelectorAll('button.dropdown-item');items.forEach(i=>i.style.display=i.textContent.toLowerCase().includes(filter)?"":"none");}
+function selectCurrency(searchInputId,hiddenInputId,toggleId,btn){const code=btn.dataset.code.toUpperCase();const name=btn.dataset.name||'';document.getElementById(hiddenInputId).value=code;document.getElementById(toggleId).textContent=code+' - '+(name||currenciesMap[code]||'');document.getElementById(searchInputId).value='';try{bootstrap.Dropdown.getInstance(document.getElementById(toggleId)).hide();}catch(e){}}
+function swapCurrencies(){const fromHidden=document.getElementById('from');const toHidden=document.getElementById('to');const fromToggle=document.getElementById('fromToggle');const toToggle=document.getElementById('toToggle');const tmpVal=fromHidden.value; fromHidden.value=toHidden.value; toHidden.value=tmpVal; const tmpText=fromToggle.textContent; fromToggle.textContent=toToggle.textContent; toToggle.textContent=tmpText;}
+function handleHash(){const hash=window.location.hash;const converter=document.getElementById('converterCard');const charts=document.getElementById('chartSection');if(hash==="#chart"){converter.classList.add('d-none'); charts.classList.remove('d-none'); loadCharts();} else {converter.classList.remove('d-none'); charts.classList.add('d-none');}}
 window.addEventListener('hashchange',handleHash);
-window.addEventListener('load',()=>{
-    handleHash();
-    {% if rate is not none %}
-    showNotification();
-    {% endif %}
-});
+window.addEventListener('load',()=>{handleHash(); {% if rate is not none %} showNotification(); {% endif %}});
 function clearForm(){window.location.href=window.location.pathname;}
-function showSpinner(cardId){
-    document.querySelector("#"+cardId+" .spinner-overlay").style.display="flex";
-}
-function hideSpinner(cardId){
-    document.querySelector("#"+cardId+" .spinner-overlay").style.display="none";
-}
-function showNotification(){
-    document.body.classList.add('no-scroll');
-    const notify = document.createElement('div');
-    notify.className = 'notify-alert';
-    notify.innerHTML = '<span class="material-icons">notifications</span> Conversion completed: {{ amount }} {{ from_currency }} = {{ converted }} {{ to_currency }}';
-    {% if rate is not none %}
-    document.getElementById('converterCard').appendChild(notify);
-    {% else %}
-    document.body.appendChild(notify);
-    {% endif %}
-    setTimeout(()=>{
-        notify.style.animation = 'slideOut 0.5s ease-in-out forwards';
-        setTimeout(()=>{
-            notify.remove();
-            document.body.classList.remove('no-scroll');
-        }, 500);
-    }, 3000);
-}
+function showSpinner(cardId){document.querySelector("#"+cardId+" .spinner-overlay").style.display="flex";}
+function hideSpinner(cardId){document.querySelector("#"+cardId+" .spinner-overlay").style.display="none";}
+function showNotification(){document.body.classList.add('no-scroll');const notify = document.createElement('div');notify.className = 'notify-alert';notify.innerHTML = '<span class="material-icons">notifications</span> Conversion completed: {{ amount }} {{ from_currency }} = {{ converted }} {{ to_currency }}';{% if rate is not none %}document.getElementById('converterCard').appendChild(notify);{% else %}document.body.appendChild(notify);{% endif %}setTimeout(()=>{notify.style.animation='slideOut 0.5s ease-in-out forwards';setTimeout(()=>{notify.remove();document.body.classList.remove('no-scroll');},500);},3000);}
 function loadCharts(){
-    const base="{{ chart_base }}";
-    const target="{{ chart_target }}";
+    const base="{{ chart_base }}"; const target="{{ chart_target }}";
     ["lineCard","pieCard","barCard"].forEach(id=>showSpinner(id));
     fetch(`/get_chart?base=${base}&target=${target}`)
     .then(r=>r.json())
     .then(data=>{
         // Line
         const ctxLine=document.getElementById('lineChart').getContext('2d');
-        new Chart(ctxLine,{
-            type:'line',
-            data:{
-                labels:data.labels,
-                datasets:[{
-                    label:'1 '+base+' in '+target,
-                    data:data.data,
-                    borderColor:'rgba(33,150,243,1)',
-                    tension:0.2
-                }]
-            },
-            options:{
-                responsive:true,
-                maintainAspectRatio:false,
-                scales:{
-                    y:{beginAtZero:false},
-                    x:{
-                        reverse:true,
-                        ticks:{
-                            autoSkip: true,
-                            maxRotation: 45,
-                            minRotation: 45,
-                            padding: 5
-                        }
-                    }
-                },
-                layout:{
-                    padding:{
-                        bottom: 10
-                    }
-                }
-            }
-        });
+        new Chart(ctxLine,{type:'line',data:{labels:data.labels,datasets:[{label:'1 '+base+' in '+target,data:data.data,borderColor:'rgba(33,150,243,1)',tension:0.2}]},options:{responsive:true,maintainAspectRatio:false,scales:{y:{beginAtZero:false},x:{reverse:true,ticks:{autoSkip:true,maxRotation:45,minRotation:45,padding:5}}},layout:{padding:{bottom:10}}}});
         hideSpinner("lineCard");
         // Pie
         const ctxPie=document.getElementById('pieChart').getContext('2d');
-        new Chart(ctxPie,{
-            type:'pie',
-            data:{
-                labels:data.labels.slice(-5),
-                datasets:[{
-                    data:data.data.slice(-5),
-                    backgroundColor:['#ff6b6b','#4ecdc4','#45b7d1','#96ceb4','#ffeead']
-                }]
-            },
-            options:{
-                responsive:true,
-                maintainAspectRatio:false,
-                plugins:{
-                    tooltip:{
-                        callbacks:{
-                            label: function(context){
-                                let label = context.label || '';
-                                let value = context.raw || 0;
-                                return `${label}: ${value.toFixed(4)} ${target}`;
-                            }
-                        }
-                    }
-                },
-                layout:{
-                    padding: 10
-                }
-            }
-        });
+        new Chart(ctxPie,{type:'pie',data:{labels:data.labels.slice(-5),datasets:[{data:data.data.slice(-5),backgroundColor:['#ff6b6b','#4ecdc4','#45b7d1','#96ceb4','#ffeead']}]},options:{responsive:true,maintainAspectRatio:false,plugins:{tooltip:{callbacks:{label:function(context){let label=context.label||'';let value=context.raw||0;return `${label}: ${value.toFixed(4)} ${target}`;}}}},layout:{padding:10}}});
         hideSpinner("pieCard");
         // Bar
         const ctxBar=document.getElementById('barChart').getContext('2d');
-        new Chart(ctxBar,{
-            type:'bar',
-            data:{
-                labels:data.labels.slice(-7).map(label => label || 'Unknown Date'),
-                datasets:[{
-                    label: `Rate in ${target}`,
-                    data:data.data.slice(-7),
-                    backgroundColor:'rgba(33,150,243,0.7)'
-                }]
-            },
-            options:{
-                responsive:true,
-                maintainAspectRatio:false,
-                scales:{
-                    y:{beginAtZero:false},
-                    x:{
-                        ticks:{
-                            autoSkip: true,
-                            maxRotation: 45,
-                            minRotation: 45,
-                            padding: 5
-                        }
-                    }
-                },
-                layout:{
-                    padding:{
-                        bottom: 10
-                    }
-                }
-            }
-        });
+        new Chart(ctxBar,{type:'bar',data:{labels:data.labels.slice(-7).map(label => label || 'Unknown Date'),datasets:[{label:`Rate in ${target}`,data:data.data.slice(-7),backgroundColor:'rgba(33,150,243,0.7)'}]},options:{responsive:true,maintainAspectRatio:false,scales:{y:{beginAtZero:false},x:{ticks:{autoSkip:true,maxRotation:45,minRotation:45,padding:5}}},layout:{padding:{bottom:10}}}});
         hideSpinner("barCard");
-
-        // Update explanation
-        let explanation = '';
-        const currentRate = data.data[data.data.length - 1];
-        const previousRate = data.data[data.data.length - 2];
-        let percentChange = 'N/A';
-        if (previousRate > 0 && currentRate > 0) {
-            percentChange = (((currentRate - previousRate) / previousRate) * 100).toFixed(2) + '%';
-        }
-        const validData = data.data.filter(d => d > 0);
-        const highest = validData.length > 0 ? Math.max(...validData).toFixed(4) : 'N/A';
-        const lowest = validData.length > 0 ? Math.min(...validData).toFixed(4) : 'N/A';
-        const average = validData.length > 0 ? (validData.reduce((a, b) => a + b, 0) / validData.length).toFixed(4) : 'N/A';
-        explanation = `
-        <ul class="explanation-list">
+        // Explanation
+        let explanation='';
+        const currentRate=data.data[data.data.length-1];
+        const previousRate=data.data[data.data.length-2];
+        let percentChange='N/A';
+        if(previousRate>0 && currentRate>0){percentChange=(((currentRate-previousRate)/previousRate)*100).toFixed(2)+'%';}
+        const validData=data.data.filter(d=>d>0);
+        const highest=validData.length>0?Math.max(...validData).toFixed(4):'N/A';
+        const lowest=validData.length>0?Math.min(...validData).toFixed(4):'N/A';
+        const average=validData.length>0?(validData.reduce((a,b)=>a+b,0)/validData.length).toFixed(4):'N/A';
+        explanation=`<ul class="explanation-list">
             <li><span class="material-icons">trending_up</span>Currency trend for 1 ${base} to ${target}</li>
             <li><span class="material-icons">percent</span>Day-over-day percent change: ${percentChange}</li>
             <li><span class="material-icons">arrow_upward</span>Highest rate in last 30 days: ${highest}</li>
             <li><span class="material-icons">arrow_downward</span>Lowest rate in last 30 days: ${lowest}</li>
             <li><span class="material-icons">bar_chart</span>Average rate in last 30 days: ${average}</li>
-        </ul>
-        `;
-        document.getElementById('explanationText').innerHTML = explanation;
+        </ul>`;
+        document.getElementById('explanationText').innerHTML=explanation;
     });
 }
 </script>
 </head>
 <body>
 <div class="container my-3">
-<!-- Converter -->
 <div id="converterCard" class="card p-3">
     <h4><span class="material-icons">currency_exchange</span> Currency Converter</h4>
     <form method="POST">
@@ -561,7 +230,6 @@ function loadCharts(){
             <label class="form-label">Amount</label>
             <input type="number" class="form-control" name="amount" value="{{ amount }}" step="any" min="0" required>
         </div>
-
         <div class="mb-3">
             <label class="form-label">From Currency</label>
             <div class="dropdown w-100">
@@ -576,11 +244,9 @@ function loadCharts(){
                 <input type="hidden" name="from_currency" id="from" value="{{ from_currency }}">
             </div>
         </div>
-
         <div class="text-center mb-3">
             <button type="button" class="btn btn-secondary" onclick="swapCurrencies()"><span class="material-icons">swap_horiz</span></button>
         </div>
-
         <div class="mb-3">
             <label class="form-label">To Currency</label>
             <div class="dropdown w-100">
@@ -595,18 +261,15 @@ function loadCharts(){
                 <input type="hidden" name="to_currency" id="to" value="{{ to_currency }}">
             </div>
         </div>
-
         <div class="mb-3">
             <label class="form-label">Date</label>
             <input type="date" class="form-control" name="date" max="{{ today }}">
         </div>
-
         <div class="button-group">
             <button type="submit" class="btn btn-primary">Convert</button>
             <span class="chart-dot" title="Go to chart" onclick="window.location.hash='#chart'">.</span>
             <button type="button" class="btn btn-warning" onclick="clearForm()">Clear</button>
         </div>
-
         {% if error %}
         <div class="alert alert-danger mt-3">{{ error }}</div>
         {% elif rate is not none %}
@@ -671,22 +334,20 @@ function loadCharts(){
                                   chart_base=chart_base,
                                   chart_target=chart_target)
 
-# ---------------- Chart AJAX Endpoint ----------------
 @app.route("/get_chart")
 def get_chart():
-    base = request.args.get("base", DEFAULT_BASE).upper()
-    target = request.args.get("target", DEFAULT_TARGET).upper()
+    base = request.args.get("base", DEFAULT_BASE)
+    target = request.args.get("target", DEFAULT_TARGET)
     labels = []
-    data = []
-    today = datetime.now()
-    for i in range(30):
-        date = (today - timedelta(days=i)).strftime("%Y-%m-%d")
-        rate = fetch_conversion(base,target,date)
-        labels.append(date)
-        data.append(rate if rate is not None else 0)
-    labels.reverse()
-    data.reverse()
-    return jsonify({"labels":labels,"data":data})
+    data_points = []
+    for i in range(30, -1, -1):
+        dt = datetime.now() - timedelta(days=i)
+        date_str = dt.strftime("%Y-%m-%d")
+        rate = fetch_conversion(base,target,date_str)
+        labels.append(date_str)
+        data_points.append(rate if rate is not None else 0)
+    return jsonify({"labels":labels,"data":data_points})
 
 if __name__=="__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=True)
